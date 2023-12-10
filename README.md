@@ -3,10 +3,10 @@
 
 透過 github.com/redis/go-redis/v9 簡單實作 RedLock
 
-如果你需要使用到RedLock,請使用 [redsync](https://github.com/go-redsync/redsync)
+如果你需要使用到`RedLock`,請使用 [redsync](https://github.com/go-redsync/redsync)
 
-因為更新Database的資料前,可能遇到 stop the world gc 的問題,所以還需要搭配
-樂觀鎖或其他方式來避免資料不一致的問題像是範例:
+因為更新`Database`的資料前,可能遇到`stop the world gc`,所以還需要搭配
+樂觀鎖或其他方式來避免`stop the world gc`之後鎖過期被取走的問題:
 
 ```go
 	rl := redlock.New(
